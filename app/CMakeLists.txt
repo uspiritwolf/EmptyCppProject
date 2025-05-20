@@ -5,14 +5,14 @@ file(
 	"src/*.h"
 )
 
-add_executable(editor)
+add_executable(app)
 
-target_sources(editor PRIVATE ${EDITOR_SOURCE_FILES})
+target_sources(app PRIVATE ${EDITOR_SOURCE_FILES})
 
-set_property(TARGET editor PROPERTY CXX_STANDARD 20)
-set_property(TARGET editor PROPERTY CXX_EXTENSIONS ON)
-set_property(TARGET editor PROPERTY CXX_STANDARD_REQUIRED ON)
-set_property(TARGET editor PROPERTY CXX_SCAN_FOR_MODULES ON)
+set_property(TARGET app PROPERTY CXX_STANDARD 20)
+set_property(TARGET app PROPERTY CXX_EXTENSIONS ON)
+set_property(TARGET app PROPERTY CXX_STANDARD_REQUIRED ON)
+set_property(TARGET app PROPERTY CXX_SCAN_FOR_MODULES ON)
 
 
-target_link_libraries(editor PRIVATE core)
+target_link_libraries(app PRIVATE core)
