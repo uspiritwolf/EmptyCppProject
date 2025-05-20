@@ -11,7 +11,11 @@
 		"clangd.arguments": [
 			"--background-index",
 			"--compile-commands-dir=${workspaceFolder}/.build"
-		]
+		],
+		"editor.insertSpaces": false,
+		"editor.detectIndentation": false,
+		"editor.formatOnSave": true,
+		"C_Cpp.clang_format_style": "file",
 	},
 	"launch": {
 		"version": "0.2.0",
