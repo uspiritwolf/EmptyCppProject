@@ -1,0 +1,23 @@
+
+file(
+	GLOB_RECURSE
+	CORE_SOURCE_FILES
+	${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/*.h
+)
+
+add_library(core)
+
+target_sources(core PRIVATE ${CORE_SOURCE_FILES})
+target_include_directories(core
+	PUBLIC
+	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+	$<INSTALL_INTERFACE:include>
+	PRIVATE
+	${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+
+set_property(TARGET core PROPERTY CXX_STANDARD 20)
+set_property(TARGET core PROPERTY CXX_EXTENSIONS ON)
+set_property(TARGET core PROPERTY CXX_STANDARD_REQUIRED ON)
+set_property(TARGET core PROPERTY CXX_SCAN_FOR_MODULES ON)

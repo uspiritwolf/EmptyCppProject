@@ -1,0 +1,93 @@
+{
+	"version": 8,
+	"configurePresets": [
+		{
+			"name": "clang-base",
+			"hidden": true,
+			"generator": "Ninja",
+			"binaryDir": "${sourceDir}/.build/bin/${presetName}",
+			"cacheVariables": {
+				"CMAKE_INSTALL_PREFIX": {
+					"type": "STRING",
+					"value": "${sourceDir}/.install/${presetName}"
+				},
+				"CMAKE_CXX_COMPILER": {
+					"type": "STRING",
+					"value": "/usr/bin/clang++"
+				},
+				"CMAKE_EXPORT_COMPILE_COMMANDS": {
+					"type": "BOOL",
+					"value": "ON"
+				},
+				"CMAKE_CXX_FLAGS": {
+					"type": "STRING",
+					"value": "-stdlib=libc++"
+				},
+				"CMAKE_EXE_LINKER_FLAGS": {
+					"type": "STRING",
+					"value": "-fuse-ld=lld"
+				}
+			}
+		},
+		{
+			"name": "clang-base-windows",
+			"hidden": true,
+			"inherits": "clang-base",
+			"cacheVariables": {
+				"CMAKE_CXX_COMPILER": {
+					"type": "STRING",
+					"value": "clang++"
+				}
+			}
+		},
+		{
+			"name": "clang-base-linux",
+			"hidden": true,
+			"inherits": "clang-base",
+			"cacheVariables": {
+				"CMAKE_CXX_COMPILER": {
+					"type": "STRING",
+					"value": "/usr/bin/clang++"
+				}
+			}
+		},
+		{
+			"name": "x64-release-windows",
+			"displayName": "x64 Release (Windows)",
+			"inherits": "clang-base-windows",
+			"architecture": {
+				"value": "x64",
+				"strategy": "external"
+			},
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release"
+			}
+		},
+		{
+			"name": "x64-debug-windows",
+			"displayName": "x64 Debug (Windows)",
+			"inherits": "x64-release-windows",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		}
+	],
+	"buildPresets": [
+		{
+			"name": "x64-debug-editor-windows",
+			"displayName": "x64 Debug Editor (Windows)",
+			"configurePreset": "x64-debug-windows",
+			"targets": [
+				"editor"
+			]
+		},
+		{
+			"name": "x64-release-editor-windows",
+			"displayName": "x64 Release Editor (Windows)",
+			"configurePreset": "x64-release-windows",
+			"targets": [
+				"editor"
+			]
+		}
+	]
+}
