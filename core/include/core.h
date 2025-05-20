@@ -1,6 +1,7 @@
 #pragma once
 
-class Core {
+class Core
+{
 public:
 	Core() = default;
 	~Core() = default;
