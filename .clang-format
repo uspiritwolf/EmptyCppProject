@@ -13,3 +13,4 @@ IndentWrappedFunctionNames: false
 ContinuationIndentWidth: 4
 IndentAccessModifiers: false
 AccessModifierOffset: -4
+PointerAlignment: Left
