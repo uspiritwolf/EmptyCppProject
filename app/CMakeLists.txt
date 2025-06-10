@@ -1,13 +1,13 @@
 file(
 	GLOB_RECURSE
-	EDITOR_SOURCE_FILES
+	APP_SOURCE_FILES
 	"src/*.cpp"
 	"src/*.h"
 )
 
 add_executable(app)
 
-target_sources(app PRIVATE ${EDITOR_SOURCE_FILES})
+target_sources(app PRIVATE ${APP_SOURCE_FILES})
 
 set_property(TARGET app PROPERTY CXX_STANDARD 20)
 set_property(TARGET app PROPERTY CXX_EXTENSIONS ON)
