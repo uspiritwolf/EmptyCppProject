@@ -15,4 +15,3 @@ set_property(TARGET app PROPERTY CXX_STANDARD_REQUIRED ON)
 set_property(TARGET app PROPERTY CXX_SCAN_FOR_MODULES ON)
 
 target_link_libraries(app PRIVATE core)
-
