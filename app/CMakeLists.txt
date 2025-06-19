@@ -1,8 +1,8 @@
 file(
-        GLOB_RECURSE
-        APP_SOURCE_FILES
-        "src/*.cpp"
-        "src/*.h"
+	GLOB_RECURSE
+	APP_SOURCE_FILES
+	"src/*.cpp"
+	"src/*.h"
 )
 
 add_executable(app)
