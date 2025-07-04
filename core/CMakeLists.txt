@@ -17,7 +17,7 @@ target_include_directories(core
 	${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
-set_property(TARGET core PROPERTY CXX_STANDARD 20)
+set_property(TARGET core PROPERTY CXX_STANDARD 23)
 set_property(TARGET core PROPERTY CXX_EXTENSIONS ON)
 set_property(TARGET core PROPERTY CXX_STANDARD_REQUIRED ON)
 set_property(TARGET core PROPERTY CXX_SCAN_FOR_MODULES ON)

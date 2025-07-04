@@ -16,6 +16,10 @@
 		"editor.detectIndentation": false,
 		"editor.formatOnSave": true,
 		"C_Cpp.clang_format_style": "file",
+		"files.exclude": {
+			"**/.git": true,
+			"**/.build": true
+		}
 	},
 	"launch": {
 		"version": "0.2.0",
@@ -26,8 +30,8 @@
 				"request": "launch",
 				"program": "${command:cmake.launchTargetPath}",
 				"args": [],
+				"cwd": "${command:cmake.buildDirectory}",
 				"stopAtEntry": false,
-				"cwd": "${fileDirname}",
 				"environment": [],
 				"console": "integratedTerminal"
 			},
@@ -37,8 +41,8 @@
 				"request": "launch",
 				"program": "${command:cmake.launchTargetPath}",
 				"args": [],
+				"cwd": "${command:cmake.buildDirectory}",
 				"stopAtEntry": false,
-				"cwd": "${fileDirname}",
 				"environment": [],
 				"MIMode": "${defaultMIMode}"
 			}
