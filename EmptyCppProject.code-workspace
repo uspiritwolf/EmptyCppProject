@@ -30,7 +30,7 @@
 				"request": "launch",
 				"program": "${command:cmake.launchTargetPath}",
 				"args": [],
-				"cwd": "${command:cmake.buildDirectory}",
+				"cwd": "${command:cmake.launchTargetDirectory}",
 				"stopAtEntry": false,
 				"environment": [],
 				"console": "integratedTerminal"
@@ -41,7 +41,7 @@
 				"request": "launch",
 				"program": "${command:cmake.launchTargetPath}",
 				"args": [],
-				"cwd": "${command:cmake.buildDirectory}",
+				"cwd": "${command:cmake.launchTargetDirectory}",
 				"stopAtEntry": false,
 				"environment": [],
 				"MIMode": "${defaultMIMode}"
