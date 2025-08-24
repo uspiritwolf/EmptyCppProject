@@ -13,9 +13,8 @@
 			"--compile-commands-dir=${workspaceFolder}/.build"
 		],
 		"editor.insertSpaces": false,
-		"editor.detectIndentation": false,
+		"editor.detectIndentation": true,
 		"editor.formatOnSave": true,
-		"C_Cpp.clang_format_style": "file",
 		"files.exclude": {
 			"**/.git": true,
 			"**/.build": true
