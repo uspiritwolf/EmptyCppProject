@@ -18,7 +18,8 @@
 		"files.exclude": {
 			"**/.git": true,
 			"**/.build": true
-		}
+		},
+		"files.eol": "\n"
 	},
 	"launch": {
 		"version": "0.2.0",
