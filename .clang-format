@@ -2,3 +2,5 @@ BasedOnStyle: LLVM
 IndentWidth: 4
 TabWidth: 4
 LineEnding: LF
+PointerAlignment: Left
+ColumnLimit: 0
