@@ -33,8 +33,7 @@
 				"cwd": "${command:cmake.launchTargetDirectory}",
 				"stopAtEntry": false,
 				"environment": [],
-				"MIMode": "lldb",
-				"miDebuggerPath": "/usr/bin/lldb-mi"
+				"MIMode": "gdb"
 			}
 		]
 	}
