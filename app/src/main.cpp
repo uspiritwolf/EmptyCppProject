@@ -1,8 +1,6 @@
-#include <core.h>
+#include <iostream>
 
-int main()
-{
-	Core core;
-	core.initialize();
-	return 0;
+int main() {
+    std::cout << "Hello World!\n";
+    return 0;
 }

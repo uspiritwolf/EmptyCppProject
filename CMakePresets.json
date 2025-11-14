@@ -2,7 +2,7 @@
 	"version": 8,
 	"configurePresets": [
 		{
-			"name": "base",
+			"name": "clang",
 			"hidden": true,
 			"generator": "Ninja",
 			"binaryDir": "${sourceDir}/.build/bin/${presetName}",
@@ -14,32 +14,14 @@
 				"CMAKE_EXPORT_COMPILE_COMMANDS": {
 					"type": "BOOL",
 					"value": "ON"
-				}
-			}
-		},
-		{
-			"name": "clang-base-windows",
-			"hidden": true,
-			"inherits": "base",
-			"cacheVariables": {
+				},
+				"CMAKE_C_COMPILER": {
+					"type": "STRING",
+					"value": "clang"
+				},
 				"CMAKE_CXX_COMPILER": {
 					"type": "STRING",
 					"value": "clang++"
-				},
-				"CMAKE_EXE_LINKER_FLAGS": {
-					"type": "STRING",
-					"value": "-fuse-ld=lld"
-				}
-			}
-		},
-		{
-			"name": "clang-base-linux",
-			"hidden": true,
-			"inherits": "base",
-			"cacheVariables": {
-				"CMAKE_CXX_COMPILER": {
-					"type": "STRING",
-					"value": "/usr/bin/clang++"
 				},
 				"CMAKE_CXX_FLAGS": {
 					"type": "STRING",
@@ -52,29 +34,9 @@
 			}
 		},
 		{
-			"name": "release-windows",
-			"displayName": "Release (Windows)",
-			"inherits": "clang-base-windows",
-			"architecture": {
-				"value": "x64",
-				"strategy": "external"
-			},
-			"cacheVariables": {
-				"CMAKE_BUILD_TYPE": "Release"
-			}
-		},
-		{
-			"name": "debug-windows",
-			"displayName": "Debug (Windows)",
-			"inherits": "release-windows",
-			"cacheVariables": {
-				"CMAKE_BUILD_TYPE": "Debug"
-			}
-		},
-		{
 			"name": "release-linux",
 			"displayName": "Release (Linux)",
-			"inherits": "clang-base-linux",
+			"inherits": "clang",
 			"architecture": {
 				"value": "x64",
 				"strategy": "external"
