@@ -12,7 +12,7 @@
 			"--background-index",
 			"--compile-commands-dir=${workspaceFolder}/.build"
 		],
-		"editor.insertSpaces": false,
+		"editor.insertSpaces": true,
 		"editor.detectIndentation": true,
 		"editor.formatOnSave": true,
 		"files.exclude": {
