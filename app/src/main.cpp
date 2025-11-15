@@ -1,16 +1,17 @@
+#include "SDL3/SDL_render.h"
 #include "SDL3/SDL_video.h"
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
 
 struct AppState {
 
-    SDL_Window* Window = nullptr;
+    SDL_Window* pWindow = nullptr;
 
-    SDL_Renderer* Renderer = nullptr;
+    SDL_Renderer* pRenderer = nullptr;
 
     static AppState* Create(void** ptr) {
         auto state = new AppState{};
-        *ptr = state;
+        *ptr       = state;
         return state;
     }
 
@@ -36,14 +37,14 @@ SDL_AppResult SDL_AppInit(void** stateptr, int argc, char* argv[]) {
 
     AppState* appState = AppState::Create(stateptr);
 
-    if (!SDL_CreateWindowAndRenderer("SDL Template", 1920, 1080, flags, &appState->Window, &appState->Renderer)) {
+    if (!SDL_CreateWindowAndRenderer("SDL Template", 1920, 1080, flags, &appState->pWindow, &appState->pRenderer)) {
         SDL_Log("Couldn't create window/renderer: %s", SDL_GetError());
         return SDL_APP_FAILURE;
     }
 
-    SDL_SetRenderLogicalPresentation(appState->Renderer, 1920, 1080, SDL_LOGICAL_PRESENTATION_LETTERBOX);
-    SDL_SetWindowPosition(appState->Window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
-    SDL_ShowWindow(appState->Window);
+    SDL_SetRenderLogicalPresentation(appState->pRenderer, 1920, 1080, SDL_LOGICAL_PRESENTATION_LETTERBOX);
+    SDL_SetWindowPosition(appState->pWindow, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+    SDL_ShowWindow(appState->pWindow);
 
     return SDL_APP_CONTINUE;
 }
@@ -52,14 +53,14 @@ SDL_AppResult SDL_AppIterate(void* stateptr) {
 
     AppState* state = AppState::Get(stateptr);
 
-    const double now = ((double)SDL_GetTicks()) / 1000.0;
-    const float red = (float)(0.5 + 0.5 * SDL_sin(now));
-    const float green = (float)(0.5 + 0.5 * SDL_sin(now + SDL_PI_D * 2 / 3));
-    const float blue = (float)(0.5 + 0.5 * SDL_sin(now + SDL_PI_D * 4 / 3));
-    SDL_SetRenderDrawColorFloat(state->Renderer, red, green, blue, SDL_ALPHA_OPAQUE_FLOAT);
+    const double now   = ((double)SDL_GetTicks()) / 1000.0;
+    const float  red   = (float)(0.5 + 0.5 * SDL_sin(now));
+    const float  green = (float)(0.5 + 0.5 * SDL_sin(now + SDL_PI_D * 2 / 3));
+    const float  blue  = (float)(0.5 + 0.5 * SDL_sin(now + SDL_PI_D * 4 / 3));
+    SDL_SetRenderDrawColorFloat(state->pRenderer, red, green, blue, SDL_ALPHA_OPAQUE_FLOAT);
 
-    SDL_RenderClear(state->Renderer);
-    SDL_RenderPresent(state->Renderer);
+    SDL_RenderClear(state->pRenderer);
+    SDL_RenderPresent(state->pRenderer);
 
     return SDL_APP_CONTINUE;
 }
@@ -74,6 +75,9 @@ SDL_AppResult SDL_AppEvent(void* stateptr, SDL_Event* event) {
 }
 
 void SDL_AppQuit(void* stateptr, SDL_AppResult result) {
+    /* SDL will clean up the window/renderer for us.*/
+
+    /* Clean up user state */
     AppState::Destroy(stateptr);
 }
 

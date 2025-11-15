@@ -4,3 +4,7 @@ TabWidth: 4
 LineEnding: LF
 PointerAlignment: Left
 ColumnLimit: 0
+
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+AlignTrailingComments: true
